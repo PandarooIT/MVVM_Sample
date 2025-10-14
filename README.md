@@ -1,4 +1,5 @@
-===== PLAN LEARNING ===== /n
+**PLAN LEARNING**
+
 **Week 1**:
 14/10/2025: MVVM
 15/10/2025: DI & Dagger 2
