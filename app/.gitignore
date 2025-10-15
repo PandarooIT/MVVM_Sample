@@ -1,1 +1,112 @@
-/build
+# ----------------------------
+# OS / IDE
+# ----------------------------
+# macOS / Windows
+.DS_Store
+Thumbs.db
+
+# IntelliJ / Android Studio
+.idea/
+*.iml
+out/
+
+# VSCode (nếu có)
+.vscode/
+
+# ----------------------------
+# Gradle / Build outputs
+# ----------------------------
+.gradle/
+build/
+*/build/
+!gradle/wrapper/gradle-wrapper.jar
+gradle-app.setting
+
+# Cache
+.cxx/
+.externalNativeBuild/
+captures/
+navigation.json
+
+# ----------------------------
+# Android specifics
+# ----------------------------
+# Local SDK & config máy dev
+local.properties
+
+# Keystore (KHÔNG commit khóa ký)
+*.jks
+*.keystore
+**/keystore/**
+**/*.keystore.properties
+signing.properties
+
+# Logs & reports
+*.log
+lint/intermediates/
+lint/generated/
+lint/tmp/
+*.hprof
+
+# Unit test / coverage
+test-results/
+**/outputs/code-coverage/
+**/jacoco.exec
+
+# ----------------------------
+# Kotlin / Java
+# ----------------------------
+# KAPT / KSP
+kapt/
+ksp/
+build/kotlin/
+**/tmp/kotlin-classes/
+
+# ----------------------------
+# Firebase / Google
+# ----------------------------
+# Tùy chính sách team:
+# - NHIỀU team commit google-services.json/.plist để build CI nhanh.
+# - Nếu chứa thông tin nhạy cảm -> bỏ comment để ignore.
+#google-services.json
+#GoogleService-Info.plist
+.firebase/
+.firebaserc
+
+# Crashlytics / Perf
+**/fabric.properties
+**/crashlytics-build.properties
+
+# ----------------------------
+# Dependency managers
+# ----------------------------
+# Maven/Gradle caches (đã có ở trên)
+# nếu dùng sdkman/others có thể thêm vào đây
+
+# ----------------------------
+# Fastlane (nếu dùng)
+# ----------------------------
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots
+fastlane/test_output
+
+# ----------------------------
+# Proguard / mapping (không cần lưu)
+# ----------------------------
+**/mapping.txt
+**/outputs/mapping/
+
+# ----------------------------
+# NDK / CMake (nếu có)
+# ----------------------------
+obj/
+*.o
+*.so
+
+# ----------------------------
+# Env / Secrets (nếu tự tạo)
+# ----------------------------
+.env
+.env.*
+secrets.properties
