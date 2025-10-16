@@ -42,8 +42,8 @@ public class FeatureActivity extends AppCompatActivity {
         );
     }
 
-        public void goToNotificationTab() {
-            Intent intent = new Intent(this, NotificationActivity.class);
-            startActivity(intent);
-        }
+    public void goToNotificationTab() {
+        Intent intent = new Intent(this, NotificationActivity.class);
+        startActivity(intent);
+    }
 }

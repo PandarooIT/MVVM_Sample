@@ -33,4 +33,5 @@ public class ViewModelModule {
                 FeatureViewModel.class, () -> new FeatureViewModel(repo)
         );
     }
+
 }

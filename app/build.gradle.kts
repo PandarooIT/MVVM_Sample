@@ -1,15 +1,13 @@
 plugins {
     alias(libs.plugins.android.application)
     id("com.google.gms.google-services")
-    id ("org.jetbrains.kotlin.android") version "1.9.24" apply false
-//    id ("io.realm.kotlin")
+    id ("org.jetbrains.kotlin.android")
+    id ("io.realm.kotlin")
 }
 
 android {
     namespace = "com.example.mvvm_sample"
-    compileSdk {
-        version = release(36)
-    }
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "com.example.mvvm_sample"
@@ -33,6 +31,10 @@ android {
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
+    }
+
+    kotlinOptions {
+        jvmTarget = "11"
     }
 
     buildFeatures {
@@ -72,5 +74,5 @@ dependencies {
     implementation(platform("com.google.firebase:firebase-bom:34.4.0"))
     implementation("com.google.firebase:firebase-analytics")
     implementation ("com.google.firebase:firebase-config")
-
+    implementation("io.realm.kotlin:library-base:2.3.0")
 }

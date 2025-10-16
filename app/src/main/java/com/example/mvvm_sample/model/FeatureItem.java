@@ -10,4 +10,12 @@ import lombok.NoArgsConstructor;
 public class FeatureItem {
     private int iconRes;
     private String title;
+
+    public int getIconRes() {
+        return iconRes;
+    }
+
+    public String getTitle() {
+        return title;
+    }
 }
