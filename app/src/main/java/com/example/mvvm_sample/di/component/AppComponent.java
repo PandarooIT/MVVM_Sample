@@ -7,6 +7,7 @@ import com.example.mvvm_sample.di.module.AppModule;
 import com.example.mvvm_sample.di.module.DataSourceModule;
 import com.example.mvvm_sample.di.module.ViewModelModule;
 import com.example.mvvm_sample.ui.FeatureActivity;
+import com.example.mvvm_sample.ui.NotificationActivity;
 import com.google.firebase.remoteconfig.FirebaseRemoteConfig;
 import com.google.gson.Gson;
 
@@ -20,6 +21,7 @@ import dagger.Component;
 public interface AppComponent {
     Application application();
     void inject(FeatureActivity activity);
+    void inject(NotificationActivity activity);
 
     //
 //    @Component.Factory

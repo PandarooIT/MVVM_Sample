@@ -1,8 +1,6 @@
 package com.example.mvvm_sample.ui;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
@@ -12,14 +10,13 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import com.example.mvvm_sample.MVVMApplication;
 import com.example.mvvm_sample.R;
 import com.example.mvvm_sample.databinding.ActivityMainBinding;
-import com.example.mvvm_sample.di.component.AppComponent;
 
 import javax.inject.Inject;
 import javax.inject.Named;
 
-public class FeatureActivity extends AppCompatActivity {
+public class NotificationActivity extends AppCompatActivity {
     @Inject
-    @Named("remoteFactory")
+    @Named("localFactory")
     ViewModelProvider.Factory factory;
     private FeatureAdapter adapter;
 
@@ -30,7 +27,6 @@ public class FeatureActivity extends AppCompatActivity {
         ActivityMainBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
 //        FeatureViewModel vm = new ViewModelProvider(this).get(FeatureViewModel.class);
         FeatureViewModel vm = new ViewModelProvider(this, factory).get(FeatureViewModel.class);
-        binding.setA(this);
         binding.setVm(vm);
         binding.setLifecycleOwner(this);
 
@@ -41,9 +37,4 @@ public class FeatureActivity extends AppCompatActivity {
                 adapter.setItems(data)
         );
     }
-
-        public void goToNotificationTab() {
-            Intent intent = new Intent(this, NotificationActivity.class);
-            startActivity(intent);
-        }
 }

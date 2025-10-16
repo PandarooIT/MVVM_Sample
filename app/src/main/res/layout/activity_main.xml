@@ -5,6 +5,9 @@
 
     <data>
         <variable
+            name="a"
+            type="com.example.mvvm_sample.ui.FeatureActivity" />
+        <variable
             name="vm"
             type="com.example.mvvm_sample.ui.FeatureViewModel" />
     </data>
@@ -35,6 +38,8 @@
                 android:layout_height="@dimen/_30sdp"
                 android:layout_centerVertical="true"
                 android:layout_alignParentEnd="true"
+                android:onClick="@{() -> a.goToNotificationTab()}"
+
                 >
                 <ImageView
                     android:layout_width="@dimen/_25sdp"

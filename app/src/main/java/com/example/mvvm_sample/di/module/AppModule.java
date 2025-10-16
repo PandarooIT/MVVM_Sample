@@ -19,8 +19,6 @@ public class AppModule {
     public AppModule(Application app) {
         this.app = app;
     }
-
-
     @Provides
     @Singleton
     public static Context provideAppContext(Application application) {
