@@ -27,7 +27,7 @@
             <de.hdodenhof.circleimageview.CircleImageView
                 android:layout_width="@dimen/_35sdp"
                 android:layout_height="@dimen/_35sdp"
-                android:src="@drawable/ic_car"
+                app:srcCompat="@{item.iconRes}"
                 android:layout_gravity="center" />
         </FrameLayout>
 

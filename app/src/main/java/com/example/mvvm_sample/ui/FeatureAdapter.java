@@ -41,7 +41,7 @@ public class FeatureAdapter extends RecyclerView.Adapter<FeatureAdapter.VH> {
     }
 
     @SuppressLint("NotifyDataSetChanged")
-    public void setItems(List<FeatureItem> data) {
+    public  void setItems(List<FeatureItem> data) {
         items.clear();
         if (data != null) items.addAll(data);
         notifyDataSetChanged();

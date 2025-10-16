@@ -1,5 +1,8 @@
 plugins {
     alias(libs.plugins.android.application)
+    id("com.google.gms.google-services")
+    id ("org.jetbrains.kotlin.android") version "1.9.24" apply false
+//    id ("io.realm.kotlin")
 }
 
 android {
@@ -39,21 +42,6 @@ android {
 }
 
 dependencies {
-    // ViewModel + LiveData
-    implementation("androidx.lifecycle:lifecycle-viewmodel:2.8.6")
-    implementation("androidx.lifecycle:lifecycle-livedata:2.8.6")
-    // Retrofit + Gson
-    implementation("com.squareup.retrofit2:retrofit:2.11.0")
-    implementation("com.squareup.retrofit2:converter-gson:2.11.0")
-    implementation("com.squareup.okhttp3:logging-interceptor:4.12.0")
-
-    implementation ("com.intuit.sdp:sdp-android:1.1.1")
-    implementation ("com.intuit.ssp:ssp-android:1.1.1")
-
-    implementation ("org.projectlombok:lombok:1.18.32")
-    annotationProcessor ("org.projectlombok:lombok:1.18.32")
-
-    implementation("de.hdodenhof:circleimageview:3.1.0")
 
     implementation(libs.appcompat)
     implementation(libs.material)
@@ -62,4 +50,27 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
+
+    // ViewModel + LiveData
+    implementation("androidx.lifecycle:lifecycle-viewmodel:2.8.6")
+    implementation("androidx.lifecycle:lifecycle-livedata:2.8.6")
+    // Retrofit + Gson
+    implementation("com.squareup.retrofit2:retrofit:2.11.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.11.0")
+    implementation("com.squareup.okhttp3:logging-interceptor:4.12.0")
+    // Scale
+    implementation ("com.intuit.sdp:sdp-android:1.1.1")
+    implementation ("com.intuit.ssp:ssp-android:1.1.1")
+    implementation ("org.projectlombok:lombok:1.18.32")
+    // Lombok
+    annotationProcessor ("org.projectlombok:lombok:1.18.32")
+    implementation("de.hdodenhof:circleimageview:3.1.0")
+    // dagger 2
+    implementation ("com.google.dagger:dagger:2.45")
+    annotationProcessor ("com.google.dagger:dagger-compiler:2.45")
+    // firebase
+    implementation(platform("com.google.firebase:firebase-bom:34.4.0"))
+    implementation("com.google.firebase:firebase-analytics")
+    implementation ("com.google.firebase:firebase-config")
+
 }

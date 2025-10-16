@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<defaultsMap>
+    <entry>
+        <key>feature_list</key>
+        <value>
+            [
+            {"title":"Road &amp; Valet Assist","icon":"ic_road_assist"},
+            {"title":"Co-Driver Alerts","icon":"ic_co_driver"},
+            {"title":"Quick Car Valuation","icon":"ic_car_value"},
+            {"title":"Insurance Quote","icon":"ic_insurance"},
+            {"title":"Used Vehicles","icon":"ic_used_car"},
+            {"title":"Traffic Cameras","icon":"ic_camera"}
+            ]
+        </value>
+    </entry>
+</defaultsMap>
