@@ -19,8 +19,8 @@ public class DataSourceModule {
     @Provides
     @Singleton
     @Remote
-    Repository provideRemote(Application app, FirebaseRemoteConfig rc) {
-        return new FeatureRemoteDataSource(app, rc);
+    Repository provideRemote(FeatureRemoteDataSource dataSource) {
+        return dataSource;
     }
 
     @Provides

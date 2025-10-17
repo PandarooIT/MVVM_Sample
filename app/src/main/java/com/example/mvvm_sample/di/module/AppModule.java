@@ -13,7 +13,12 @@ import javax.inject.Singleton;
 import dagger.Module;
 import dagger.Provides;
 
-@Module
+@Module (
+        includes = {
+                ViewModelModule.class,
+                DataSourceModule.class
+        }
+)
 public class AppModule {
     private final Application app;
     public AppModule(Application app) {

@@ -19,7 +19,6 @@ import javax.inject.Named;
 
 public class FeatureActivity extends AppCompatActivity {
     @Inject
-    @Named("remoteFactory")
     ViewModelProvider.Factory factory;
     private FeatureAdapter adapter;
 

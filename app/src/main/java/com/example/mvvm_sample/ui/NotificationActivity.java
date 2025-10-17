@@ -10,13 +10,13 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import com.example.mvvm_sample.MVVMApplication;
 import com.example.mvvm_sample.R;
 import com.example.mvvm_sample.databinding.ActivityMainBinding;
+import com.example.mvvm_sample.databinding.ActivityNotificationBinding;
 
 import javax.inject.Inject;
 import javax.inject.Named;
 
 public class NotificationActivity extends AppCompatActivity {
     @Inject
-    @Named("localFactory")
     ViewModelProvider.Factory factory;
     private FeatureAdapter adapter;
 
@@ -24,9 +24,9 @@ public class NotificationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         ((MVVMApplication)getApplication()).getAppComponent().inject(this);
 
-        ActivityMainBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+        ActivityNotificationBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_notification);
 //        FeatureViewModel vm = new ViewModelProvider(this).get(FeatureViewModel.class);
-        FeatureViewModel vm = new ViewModelProvider(this, factory).get(FeatureViewModel.class);
+        NotificationViewModel vm = new ViewModelProvider(this, factory).get(NotificationViewModel.class);
         binding.setVm(vm);
         binding.setLifecycleOwner(this);
 
