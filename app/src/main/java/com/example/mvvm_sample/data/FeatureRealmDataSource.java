@@ -54,6 +54,60 @@ public class FeatureRealmDataSource implements Repository {
                 insertInternal(r, "Smart Parking", R.drawable.ic_car);
                 insertInternal(r, "Speed Alerts", R.drawable.ic_quick_car_valuation);
                 insertInternal(r, "Claim Tracker", R.drawable.ic_insurance);
+                insertInternal(r, "Smart Parking", R.drawable.ic_car);
+                insertInternal(r, "Speed Alerts", R.drawable.ic_quick_car_valuation);
+                insertInternal(r, "Claim Tracker", R.drawable.ic_insurance);
+                insertInternal(r, "Smart Parking", R.drawable.ic_car);
+                insertInternal(r, "Speed Alerts", R.drawable.ic_quick_car_valuation);
+                insertInternal(r, "Claim Tracker", R.drawable.ic_insurance);
+                insertInternal(r, "Smart Parking", R.drawable.ic_car);
+                insertInternal(r, "Speed Alerts", R.drawable.ic_quick_car_valuation);
+                insertInternal(r, "Claim Tracker", R.drawable.ic_insurance);
+                insertInternal(r, "Smart Parking", R.drawable.ic_car);
+                insertInternal(r, "Speed Alerts", R.drawable.ic_quick_car_valuation);
+                insertInternal(r, "Claim Tracker", R.drawable.ic_insurance);
+                insertInternal(r, "Smart Parking", R.drawable.ic_car);
+                insertInternal(r, "Speed Alerts", R.drawable.ic_quick_car_valuation);
+                insertInternal(r, "Claim Tracker", R.drawable.ic_insurance);
+                insertInternal(r, "Smart Parking", R.drawable.ic_car);
+                insertInternal(r, "Speed Alerts", R.drawable.ic_quick_car_valuation);
+                insertInternal(r, "Claim Tracker", R.drawable.ic_insurance);
+                insertInternal(r, "Smart Parking", R.drawable.ic_car);
+                insertInternal(r, "Speed Alerts", R.drawable.ic_quick_car_valuation);
+                insertInternal(r, "Claim Tracker", R.drawable.ic_insurance);
+                insertInternal(r, "Smart Parking", R.drawable.ic_car);
+                insertInternal(r, "Speed Alerts", R.drawable.ic_quick_car_valuation);
+                insertInternal(r, "Claim Tracker", R.drawable.ic_insurance);
+                insertInternal(r, "Smart Parking", R.drawable.ic_car);
+                insertInternal(r, "Speed Alerts", R.drawable.ic_quick_car_valuation);
+                insertInternal(r, "Claim Tracker", R.drawable.ic_insurance);
+                insertInternal(r, "Smart Parking", R.drawable.ic_car);
+                insertInternal(r, "Speed Alerts", R.drawable.ic_quick_car_valuation);
+                insertInternal(r, "Claim Tracker", R.drawable.ic_insurance);
+                insertInternal(r, "Smart Parking", R.drawable.ic_car);
+                insertInternal(r, "Speed Alerts", R.drawable.ic_quick_car_valuation);
+                insertInternal(r, "Claim Tracker", R.drawable.ic_insurance);
+                insertInternal(r, "Smart Parking", R.drawable.ic_car);
+                insertInternal(r, "Speed Alerts", R.drawable.ic_quick_car_valuation);
+                insertInternal(r, "Claim Tracker", R.drawable.ic_insurance);
+                insertInternal(r, "Smart Parking", R.drawable.ic_car);
+                insertInternal(r, "Speed Alerts", R.drawable.ic_quick_car_valuation);
+                insertInternal(r, "Claim Tracker", R.drawable.ic_insurance);
+                insertInternal(r, "Smart Parking", R.drawable.ic_car);
+                insertInternal(r, "Speed Alerts", R.drawable.ic_quick_car_valuation);
+                insertInternal(r, "Claim Tracker", R.drawable.ic_insurance);
+                insertInternal(r, "Smart Parking", R.drawable.ic_car);
+                insertInternal(r, "Speed Alerts", R.drawable.ic_quick_car_valuation);
+                insertInternal(r, "Claim Tracker", R.drawable.ic_insurance);
+                insertInternal(r, "Smart Parking", R.drawable.ic_car);
+                insertInternal(r, "Speed Alerts", R.drawable.ic_quick_car_valuation);
+                insertInternal(r, "Claim Tracker", R.drawable.ic_insurance);
+                insertInternal(r, "Smart Parking", R.drawable.ic_car);
+                insertInternal(r, "Speed Alerts", R.drawable.ic_quick_car_valuation);
+                insertInternal(r, "Claim Tracker", R.drawable.ic_insurance);
+                insertInternal(r, "Smart Parking", R.drawable.ic_car);
+                insertInternal(r, "Speed Alerts", R.drawable.ic_quick_car_valuation);
+                insertInternal(r, "Claim Tracker", R.drawable.ic_insurance);
             }
         }, bgRealm::close, error -> bgRealm.close());
     }
@@ -70,6 +124,7 @@ public class FeatureRealmDataSource implements Repository {
         e.setIconRes(iconRes);
     }
 
+    @Override
     public void insert(FeatureItem item) {
         Realm bgRealm = Realm.getInstance(config);
         bgRealm.executeTransactionAsync(
@@ -79,6 +134,7 @@ public class FeatureRealmDataSource implements Repository {
         );
     }
 
+    @Override
     public void update(long id, FeatureItem newItem) {
         Realm bgRealm = Realm.getInstance(config);
         bgRealm.executeTransactionAsync(r -> {
@@ -92,6 +148,7 @@ public class FeatureRealmDataSource implements Repository {
         }, bgRealm::close, error -> bgRealm.close());
     }
 
+    @Override
     public void delete(long id) {
         Realm bgRealm = Realm.getInstance(config);
         bgRealm.executeTransactionAsync(r -> {
@@ -102,6 +159,7 @@ public class FeatureRealmDataSource implements Repository {
         }, bgRealm::close, error -> bgRealm.close());
     }
 
+    @Override
     public void deleteAll() {
         Realm bgRealm = Realm.getInstance(config);
         bgRealm.executeTransactionAsync(r -> r.delete(FeatureEntity.class),

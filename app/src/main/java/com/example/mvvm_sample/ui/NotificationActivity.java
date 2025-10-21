@@ -19,18 +19,15 @@ import com.example.mvvm_sample.di.component.ActivityComponent;
 import com.example.mvvm_sample.di.component.AppComponent;
 import com.example.mvvm_sample.di.component.DaggerActivityComponent;
 import com.example.mvvm_sample.model.FeatureItem;
+import com.example.mvvm_sample.ui.base.BaseActivity;
 
 import java.util.ArrayList;
 
 import javax.inject.Inject;
 import javax.inject.Named;
 
-public class NotificationActivity extends AppCompatActivity {
-    @Inject
-    ViewModelProvider.Factory factory;
+public class NotificationActivity extends BaseActivity<ActivityNotificationBinding, NotificationViewModel> {
     private FeatureAdapter adapter;
-    NotificationViewModel vm;
-
     private final int[] iconList = {
             R.drawable.ic_car,
             R.drawable.ic_insurance,
@@ -38,20 +35,25 @@ public class NotificationActivity extends AppCompatActivity {
             R.drawable.ic_traffic_camera
     };
 
+    @Override
+    protected int layoutId() {
+        return R.layout.activity_notification;
+    }
 
+    @Override
+    protected Class<NotificationViewModel> viewModelClass() {
+        return NotificationViewModel.class;
+    }
+
+    @Override
+    protected void injectComponent(ActivityComponent activityComponent) {
+        activityComponent.inject(this);
+    }
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        AppComponent appComponent =
-                ((MVVMApplication) getApplication()).getAppComponent();
-        ActivityComponent activityComponent = DaggerActivityComponent.factory()
-                        .create(appComponent, this);
-        activityComponent.inject(this);
-        ActivityNotificationBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_notification);
-//        FeatureViewModel vm = new ViewModelProvider(this).get(FeatureViewModel.class);
-        vm = new ViewModelProvider(this, factory).get(NotificationViewModel.class);
-        binding.setVm(vm);
-        binding.setLifecycleOwner(this);
+
+        binding.setVm(viewModel);
 
         adapter = new FeatureAdapter(new FeatureAdapter.OnItemActionListener() {
             @Override
@@ -64,14 +66,14 @@ public class NotificationActivity extends AppCompatActivity {
                 new AlertDialog.Builder(NotificationActivity.this)
                         .setTitle("Delete")
                         .setMessage("Delete \"" + item.getTitle() + "\"?")
-                        .setPositiveButton("Delete", (d, w) -> vm.deleteFeature(item.getId()))
+                        .setPositiveButton("Delete", (d, w) -> viewModel.deleteFeature(item.getId()))
                         .setNegativeButton("Cancel", null)
                         .show();
             }
         });
         binding.rvFeatures.setLayoutManager(new GridLayoutManager(this, 5));
         binding.rvFeatures.setAdapter(adapter);
-        vm.features.observe(this, list -> adapter.submitList(new ArrayList<>(list)));
+        viewModel.features.observe(this, list -> adapter.submitList(new ArrayList<>(list)));
 
         binding.btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -95,7 +97,7 @@ public class NotificationActivity extends AppCompatActivity {
                 .setPositiveButton("Save", (d, w) -> {
                     String newTitle = input.getText().toString();
                     FeatureItem updated = new FeatureItem(item.getId(), item.getIconRes(), newTitle);
-                    vm.updateFeature(item.getId(), updated);
+                    viewModel.updateFeature(item.getId(), updated);
                 })
                 .setNegativeButton("Cancel", null)
                 .show();
@@ -113,7 +115,7 @@ public class NotificationActivity extends AppCompatActivity {
                     if (!title.isEmpty()) {
                         int icon = randomIcon();
                         FeatureItem newItem = new FeatureItem(0, icon, title);
-                        vm.addFeature(newItem);
+                        viewModel.addFeature(newItem);
                     } else {
                         Toast.makeText(this, "Title cannot be empty", Toast.LENGTH_SHORT).show();
                     }

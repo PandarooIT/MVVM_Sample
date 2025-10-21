@@ -39,6 +39,26 @@ public class FeatureRemoteDataSource implements Repository {
         return live;
     }
 
+    @Override
+    public void insert(FeatureItem item) {
+
+    }
+
+    @Override
+    public void update(long id, FeatureItem newItem) {
+
+    }
+
+    @Override
+    public void delete(long id) {
+
+    }
+
+    @Override
+    public void deleteAll() {
+
+    }
+
     private List<FeatureItem> parse(String json) {
         List<FeatureItem> out = new ArrayList<>();
         if (json == null || json.isEmpty()) return out;

@@ -49,7 +49,7 @@ public class AppModule {
     }
 
     @Provides @Singleton
-    RealmConfiguration provideRealmConfig(Application app) {
+    RealmConfiguration provideRealmConfig() {
         return new RealmConfiguration.Builder()
                 .name("app.realm")
                 .schemaVersion(1)

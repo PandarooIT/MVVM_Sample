@@ -16,10 +16,10 @@ import javax.inject.Inject;
 public class NotificationViewModel extends ViewModel {
     public final LiveData<List<FeatureItem>> features;
 
-    FeatureRealmDataSource repo;
+    Repository repo;
     @Inject
     public NotificationViewModel(@Local Repository remote) {
-        repo = (FeatureRealmDataSource) remote;
+        repo = remote;
         features = repo.getFeatures();
     }
 

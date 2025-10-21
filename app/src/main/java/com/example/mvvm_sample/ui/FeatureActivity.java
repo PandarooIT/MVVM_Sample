@@ -16,32 +16,36 @@ import com.example.mvvm_sample.di.component.ActivityComponent;
 import com.example.mvvm_sample.di.component.AppComponent;
 import com.example.mvvm_sample.di.component.DaggerActivityComponent;
 import com.example.mvvm_sample.model.FeatureItem;
+import com.example.mvvm_sample.ui.base.BaseActivity;
 
 import java.util.ArrayList;
 
 import javax.inject.Inject;
 import javax.inject.Named;
 
-public class FeatureActivity extends AppCompatActivity {
-    @Inject
-    ViewModelProvider.Factory factory;
+public class FeatureActivity extends BaseActivity<ActivityMainBinding, FeatureViewModel> {
     private FeatureAdapter adapter;
+
+    @Override
+    protected int layoutId() {
+        return R.layout.activity_main;
+    }
+
+    @Override
+    protected Class<FeatureViewModel> viewModelClass() {
+        return FeatureViewModel.class;
+    }
+
+    @Override
+    protected void injectComponent(ActivityComponent activityComponent) {
+        activityComponent.inject(this);
+    }
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        AppComponent appComponent =
-                ((MVVMApplication) getApplication()).getAppComponent();
-        ActivityComponent activityComponent =
-                DaggerActivityComponent.factory()
-                        .create(appComponent, this);
-        activityComponent.inject(this);
 
-        ActivityMainBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
-//        FeatureViewModel vm = new ViewModelProvider(this).get(FeatureViewModel.class);
-        FeatureViewModel vm = new ViewModelProvider(this, factory).get(FeatureViewModel.class);
         binding.setA(this);
-        binding.setVm(vm);
-        binding.setLifecycleOwner(this);
+        binding.setVm(viewModel);
 
         adapter = new FeatureAdapter(new FeatureAdapter.OnItemActionListener() {
             @Override
@@ -56,11 +60,8 @@ public class FeatureActivity extends AppCompatActivity {
         });
         binding.rvFeatures.setLayoutManager(new GridLayoutManager(this, 5));
         binding.rvFeatures.setAdapter(adapter);
-//        vm.features.observe(this, data ->
-//                adapter.submitList(data)
-//        );
 
-        vm.features.observe(this, list -> adapter.submitList(new ArrayList<>(list)));
+        viewModel.features.observe(this, list -> adapter.submitList(new ArrayList<>(list)));
     }
 
         public void goToNotificationTab() {

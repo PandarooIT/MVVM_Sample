@@ -19,9 +19,4 @@ public class FeatureViewModel extends ViewModel {
         features = remote.getFeatures();
     }
 
-    public void goToNotificationTab() {
-        Intent intent = new Intent();
-
-    }
-
 }

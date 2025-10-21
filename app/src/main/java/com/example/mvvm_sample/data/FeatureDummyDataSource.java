@@ -23,4 +23,24 @@ public class FeatureDummyDataSource implements Repository {
 //        ));
         return live;
     }
+
+    @Override
+    public void insert(FeatureItem item) {
+
+    }
+
+    @Override
+    public void update(long id, FeatureItem newItem) {
+
+    }
+
+    @Override
+    public void delete(long id) {
+
+    }
+
+    @Override
+    public void deleteAll() {
+
+    }
 }
