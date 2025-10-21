@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class FeatureItem {
+    private long id;
     private int iconRes;
     private String title;
 }

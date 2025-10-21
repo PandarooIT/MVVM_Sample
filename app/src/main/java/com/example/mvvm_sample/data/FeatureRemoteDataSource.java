@@ -56,12 +56,13 @@ public class FeatureRemoteDataSource implements Repository {
 
             for (com.google.gson.JsonElement el : arr) {
                 com.google.gson.JsonObject obj = el.getAsJsonObject();
+                long id = obj.get("id").getAsLong();
                 String title = obj.get("title").getAsString();
                 String iconName = obj.get("icon").getAsString();
 
                 // lookup drawable id; fallback to 0 if not found
                 int iconRes = res.getIdentifier(iconName, "drawable", pkg);
-                out.add(new FeatureItem(iconRes, title));
+                out.add(new FeatureItem(id, iconRes, title));
             }
         } catch (Exception e) {
             // Log and return whatever we parsed so far

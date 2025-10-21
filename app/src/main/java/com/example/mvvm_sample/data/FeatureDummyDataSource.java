@@ -16,11 +16,11 @@ public class FeatureDummyDataSource implements Repository {
 
     @Override public LiveData<List<FeatureItem>> getFeatures() {
         MutableLiveData<List<FeatureItem>> live = new MutableLiveData<>();
-        live.setValue(List.of(
-                new FeatureItem(R.drawable.ic_insurance, "Dummy – Insurance Tools"),
-                new FeatureItem(R.drawable.ic_traffic_camera,    "Dummy – Traffic Cam"),
-                new FeatureItem(R.drawable.ic_quick_car_valuation,  "Dummy – Used Cars")
-        ));
+//        live.setValue(List.of(
+//                new FeatureItem(R.drawable.ic_insurance, "Dummy – Insurance Tools"),
+//                new FeatureItem(R.drawable.ic_traffic_camera,    "Dummy – Traffic Cam"),
+//                new FeatureItem(R.drawable.ic_quick_car_valuation,  "Dummy – Used Cars")
+//        ));
         return live;
     }
 }

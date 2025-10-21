@@ -1,9 +1,9 @@
 plugins {
     alias(libs.plugins.android.application)
     id("com.google.gms.google-services")
-    id ("org.jetbrains.kotlin.android") version "1.9.24" apply false
-//    id ("io.realm.kotlin")
 }
+
+apply(plugin = "realm-android")
 
 android {
     namespace = "com.example.mvvm_sample"
@@ -39,6 +39,8 @@ android {
         viewBinding = true
         dataBinding = true
     }
+
+
 }
 
 dependencies {

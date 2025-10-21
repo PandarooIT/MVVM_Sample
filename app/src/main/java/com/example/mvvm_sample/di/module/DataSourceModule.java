@@ -1,15 +1,14 @@
 package com.example.mvvm_sample.di.module;
 
-import android.app.Application;
 
+import com.example.mvvm_sample.data.FeatureRealmDataSource;
 import com.example.mvvm_sample.data.Repository;
 import com.example.mvvm_sample.data.FeatureDummyDataSource;
 import com.example.mvvm_sample.data.FeatureRemoteDataSource;
 import com.example.mvvm_sample.di.qualifier.Local;
 import com.example.mvvm_sample.di.qualifier.Remote;
-import com.google.firebase.remoteconfig.FirebaseRemoteConfig;
+import com.example.mvvm_sample.di.scoped.ActivityScope;
 
-import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
@@ -17,16 +16,15 @@ import dagger.Provides;
 @Module
 public class DataSourceModule {
     @Provides
-    @Singleton
     @Remote
     Repository provideRemote(FeatureRemoteDataSource dataSource) {
         return dataSource;
     }
 
     @Provides
-    @Singleton
     @Local
-    Repository provideLocal() {
-        return new FeatureDummyDataSource();
+    Repository provideLocal(FeatureRealmDataSource dataSource) {
+        return dataSource;
     }
+
 }

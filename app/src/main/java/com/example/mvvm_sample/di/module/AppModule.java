@@ -12,6 +12,7 @@ import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
+import io.realm.RealmConfiguration;
 
 @Module (
         includes = {
@@ -24,6 +25,9 @@ public class AppModule {
     public AppModule(Application app) {
         this.app = app;
     }
+
+
+
     @Provides
     @Singleton
     public static Context provideAppContext(Application application) {
@@ -49,5 +53,13 @@ public class AppModule {
                 .build());
         rc.setDefaultsAsync(R.xml.remote_config_defaults);
         return rc;
+    }
+
+    @Provides @Singleton
+    RealmConfiguration provideRealmConfig(Application app) {
+        return new RealmConfiguration.Builder()
+                .name("app.realm")
+                .schemaVersion(1)
+                .build();
     }
 }
