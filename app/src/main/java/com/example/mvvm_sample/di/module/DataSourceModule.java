@@ -16,12 +16,14 @@ import dagger.Provides;
 @Module
 public class DataSourceModule {
     @Provides
+    @ActivityScope
     @Remote
     Repository provideRemote(FeatureRemoteDataSource dataSource) {
         return dataSource;
     }
 
     @Provides
+    @ActivityScope
     @Local
     Repository provideLocal(FeatureRealmDataSource dataSource) {
         return dataSource;

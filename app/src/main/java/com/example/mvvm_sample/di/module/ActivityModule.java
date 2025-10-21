@@ -10,7 +10,12 @@ import com.google.gson.Gson;
 import dagger.Module;
 import dagger.Provides;
 
-@Module
+@Module (
+        includes = {
+                DataSourceModule.class,
+                ViewModelModule.class
+        }
+)
 public class ActivityModule {
 
 }

@@ -10,25 +10,22 @@ import com.example.mvvm_sample.di.qualifier.Local;
 import com.example.mvvm_sample.di.qualifier.Remote;
 import com.example.mvvm_sample.ui.FeatureActivity;
 import com.example.mvvm_sample.ui.NotificationActivity;
+import com.google.firebase.remoteconfig.FirebaseRemoteConfig;
 
 import javax.inject.Singleton;
 
 import dagger.BindsInstance;
 import dagger.Component;
+import io.realm.RealmConfiguration;
 
 @Singleton
 @Component(modules = {AppModule.class})
 public interface AppComponent {
     Application application();
-//    @Remote
-//    Repository remoteRepository();
-//    @Local
-//    Repository localRepository();
+    FirebaseRemoteConfig firebaseRemoteConfig();
+    RealmConfiguration realmConfiguration();
 
-    ViewModelProvider.Factory viewModelFactory();
 
-//    @Component.Factory
-//    interface Factory {
-//        AppComponent create(@BindsInstance Application application);
-//    }
+
+//    ViewModelProvider.Factory viewModelFactory();
 }

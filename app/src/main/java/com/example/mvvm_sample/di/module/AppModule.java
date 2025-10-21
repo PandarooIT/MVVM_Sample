@@ -14,19 +14,12 @@ import dagger.Module;
 import dagger.Provides;
 import io.realm.RealmConfiguration;
 
-@Module (
-        includes = {
-                ViewModelModule.class,
-                DataSourceModule.class
-        }
-)
+@Module
 public class AppModule {
     private final Application app;
     public AppModule(Application app) {
         this.app = app;
     }
-
-
 
     @Provides
     @Singleton
