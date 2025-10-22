@@ -26,6 +26,10 @@
             android:name=".ui.NotificationActivity"
             android:exported="true">
         </activity>
+        <activity
+            android:name=".ui.WebviewActivity"
+            android:exported="true">
+        </activity>
     </application>
 
 </manifest>

@@ -6,6 +6,7 @@ import com.example.mvvm_sample.di.module.ActivityModule;
 import com.example.mvvm_sample.di.scoped.ActivityScope;
 import com.example.mvvm_sample.ui.FeatureActivity;
 import com.example.mvvm_sample.ui.NotificationActivity;
+import com.example.mvvm_sample.ui.WebviewActivity;
 
 import org.checkerframework.checker.units.qual.A;
 
@@ -27,4 +28,5 @@ public interface ActivityComponent {
     }
     void inject(NotificationActivity activity);
     void inject (FeatureActivity activity);
+    void inject (WebviewActivity activity);
 }

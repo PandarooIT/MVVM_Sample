@@ -64,8 +64,13 @@ public class FeatureActivity extends BaseActivity<ActivityMainBinding, FeatureVi
         viewModel.features.observe(this, list -> adapter.submitList(new ArrayList<>(list)));
     }
 
-        public void goToNotificationTab() {
-            Intent intent = new Intent(this, NotificationActivity.class);
-            startActivity(intent);
-        }
+    public void goToNotificationTab() {
+        Intent intent = new Intent(this, NotificationActivity.class);
+        startActivity(intent);
+    }
+
+    public void goToWebTab() {
+        Intent intent = new Intent(this, WebviewActivity.class);
+        startActivity(intent);
+    }
 }

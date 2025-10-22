@@ -7,6 +7,7 @@
     import com.example.mvvm_sample.di.scoped.ViewModelKey;
     import com.example.mvvm_sample.ui.FeatureViewModel;
     import com.example.mvvm_sample.ui.NotificationViewModel;
+    import com.example.mvvm_sample.ui.WebviewViewModel;
 
     import dagger.Binds;
     import dagger.Module;
@@ -23,6 +24,11 @@
         @IntoMap
         @ViewModelKey(NotificationViewModel.class)
         abstract ViewModel bindNotificationViewModel(NotificationViewModel viewModel);
+
+        @Binds
+        @IntoMap
+        @ViewModelKey(WebviewViewModel.class)
+        abstract ViewModel bindWebviewViewModel(WebviewViewModel viewModel);
 
         @Binds
         abstract ViewModelProvider.Factory bindVmFactory(DaggerViewModelFactory factory);

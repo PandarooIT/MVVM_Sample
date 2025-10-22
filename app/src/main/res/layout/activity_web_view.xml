@@ -5,11 +5,8 @@
 
     <data>
         <variable
-            name="a"
-            type="com.example.mvvm_sample.ui.FeatureActivity" />
-        <variable
             name="vm"
-            type="com.example.mvvm_sample.ui.FeatureViewModel" />
+            type="com.example.mvvm_sample.ui.WebviewViewModel" />
     </data>
 
     <LinearLayout
@@ -29,48 +26,31 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:text="Motorist VN"
+                android:text="Web view"
                 android:textSize="@dimen/_15ssp"
                 />
 
             <RelativeLayout
+                android:id="@+id/btn_change_color"
                 android:layout_width="@dimen/_30sdp"
                 android:layout_height="@dimen/_30sdp"
                 android:layout_centerVertical="true"
                 android:layout_alignParentEnd="true"
-                android:onClick="@{() -> a.goToNotificationTab()}"
                 android:layout_marginEnd="@dimen/_10sdp"
                 >
                 <ImageView
                     android:layout_width="@dimen/_25sdp"
                     android:layout_height="@dimen/_25sdp"
-                    android:src="@drawable/ic_notification"
-                    />
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="@dimen/_30sdp"
-                android:layout_height="@dimen/_30sdp"
-                android:layout_centerVertical="true"
-                android:layout_alignParentStart="true"
-                android:onClick="@{() -> a.goToWebTab()}"
-                android:layout_marginStart="@dimen/_10sdp"
-                >
-                <ImageView
-                    android:layout_width="@dimen/_25sdp"
-                    android:layout_height="@dimen/_25sdp"
-                    android:src="@drawable/ic_web"
-                    android:backgroundTint="@color/white"
+                    android:src="@drawable/ic_exchange"
                     />
             </RelativeLayout>
 
         </RelativeLayout>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvFeatures"
+        <WebView
+            android:id="@+id/web_view"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/_10sdp"
+            android:layout_height="match_parent"
             />
     </LinearLayout>
 </layout>
