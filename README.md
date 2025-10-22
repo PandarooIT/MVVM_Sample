@@ -14,8 +14,8 @@
 
 
 ### 22/10/2025 - 24/10/2025: Compose
-- 19/10/2025: Giao diện tĩnh
-- 20/10/2025: Giao diện động (Hiển thị listview, dummy data)
+- Giao diện tĩnh
+- Giao diện động (Hiển thị listview, dummy data)
 1. Coroutines, Flow, StateFlow
 2. Khái niệm Debounce, Throttle
 3. Cơ chế recompose, best practices khi dùng compose
